@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-login',
   standalone: true,
   imports: [RouterOutlet, RouterLink],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
-export class AppComponent {
-  title = 'appMovilTT2';
+export class LoginComponent {
+
 }

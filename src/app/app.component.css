@@ -1,0 +1,49 @@
+:host {
+    display: block;
+  }
+  
+    input[type="text"],
+    input[type="submit"],
+    input[type="password"],
+    a {
+      border-style: none;
+      font-family: "Inter";
+      font-size: 1rem;
+      border-radius: .5rem;
+      height: 2.85rem;
+    }
+  
+    input[type="submit"],
+    a {
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+      background-color: #3664BC;
+      color: #FFF;
+    }
+  
+    a:hover,
+    input[type="submit"]:hover {
+      cursor: pointer;
+    }
+  
+    .login {
+      display: grid;
+      gap: 2rem;
+      width: 50vw;
+      padding-top: 5.35rem;
+    }
+  
+    .main {
+      /* width: 40%; */
+      padding-top: 3rem;
+      display: flex;
+      justify-content: center;
+    }
+    a {
+      font-style: none;
+      display: flex;
+      justify-content: center;
+      width: 36.5%;
+      margin: 0 auto;
+    }  
