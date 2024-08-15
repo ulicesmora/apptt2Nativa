@@ -11,7 +11,7 @@
       font-size: 1.2rem;
       text-align: center;
       color: #FFF;
-      padding-top: 10rem;
+      padding-top: 1rem;
     }
   
     label {
@@ -35,10 +35,12 @@
         margin: 0 auto;
         text-decoration: none;
         color: #FFF;
+        margin-top: 1rem;
     }
 
     .links {
-        padding-top: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
   
     a:hover,
@@ -54,12 +56,15 @@
     .login {
       display: grid;
       justify-content: center;
-      gap: 2rem;
+      gap: .7rem;
       width: 75vw;
-      padding-top: 5.35rem;
+      padding-top: 1rem;
       margin: 0 auto;
     }
 
+    select,
+    input[type="text"],
+    input[type="tel"],
     input[type="email"],
     input[type="submit"],
     input[type="password"],
@@ -70,6 +75,7 @@
       border-radius: .8rem;
       height: 2.8rem;
       width: 70vw;
+      background-color: #fff;
     }
   
     .main {

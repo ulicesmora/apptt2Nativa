@@ -1,8 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    /* background: linear-gradient(to bottom, #eaeaea, #368984); */
-    background-color: #368984;
-}
+
 
 /* ***** Reset ***** */
 html {
@@ -19,9 +16,10 @@ html {
 }
 
 body {
-    margin: 0;
     overflow-x: hidden;
-    min-height: 100vh; /* Para que el degradado ocupe toda la altura de la pantalla */
+    background-color: #368984;
+    margin: 0;
+    max-height: 100%; /* Paara que el degradado ocupe toda la altura de la pantalla */
 }
 
 :host {

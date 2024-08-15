@@ -1,0 +1,54 @@
+<h1>Registro</h1>
+<section class="credentials">
+    <form action="" class="login">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre usuario">
+
+        <label for="correo">Correo</label>
+        <input type="email" name="correo" id="correo" placeholder="Ingresa tu correo">
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" name="telefono" id="telefono" placeholder="Ingresa tu teléfono">
+
+        <label for="telefono-auxiliar">Teléfono familiar</label>
+        <input type="tel" name="telefono" id="telefono-auxiliar" placeholder="Ingresa un teléfono de contacto">
+
+        <label for="sexo">Sexo </label>
+        <select name="sexo" id="sexo">
+            <option value="">Selecciona una opción</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
+
+        <label for="alergia">Alergias </label>
+        <select name="alergia" id="alergia">
+            <option value="">Selecciona una opción</option>
+            <option value="Alergia1">Alergia1</option>
+            <option value="Alergia2">Alergia2</option>
+        </select>
+
+        <label for="enfermedad">Enfermedades crónicas </label>
+        <select name="enfermedad" id="enfermedad">
+            <option value="">Selecciona una opción</option>
+            <option value="Enfermedad1">Enfermedad1</option>
+            <option value="Enfermedad2">Enfermedad2</option>
+        </select>
+
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" id="password" placeholder="********">
+        
+        <a class="btn-login" routerLink="/login">
+            <!-- <input type="submit" value="Continuar" routerLink="/login"> -->
+            <p>Registrarse</p>
+        </a>
+    </form>
+    <section class="inferior">
+        <a  routerLink="/login">
+            <p class="links">¿Ya tienes cuenta? Inicia Sesión</p>
+        </a>
+        <a routerLink="/recuperar">
+            <p class="links">Olvidé mi contraseña</p>
+        </a>
+    </section>
+    <router-outlet></router-outlet>
+  </section> 
