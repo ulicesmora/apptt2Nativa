@@ -14,8 +14,8 @@
         <a  routerLink="/registro">
             <p class="links">Regristrate</p>
         </a>
-        <a routerLink="/recuperar">
-            <p class="links">Olvidé mi contraseña</p>
+        <a>
+            <p (click)="recuperarPassword()" class="links">Olvidé mi contraseña</p>
         </a>
     </section>
     <router-outlet></router-outlet>
