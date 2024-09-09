@@ -1,0 +1,71 @@
+/* Estilo general del menú */
+.menu-lateral {
+    width: 250px;
+    height: 100vh;
+    background-color: #AFD0CE;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 10px;
+}
+
+/* Cabecera del menú */
+.menu-cabecera {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 7rem;
+    margin-top: 2rem;
+}
+
+.cerrar-menu {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #CB2E2E;
+    position: fixed;
+    left: 215px;
+    top: 1rem;
+}
+
+.nombre-usuario {
+    font-size: 1.2rem;
+    color: #000;
+}
+
+/* Estilos de las opciones del menú */
+.menu-opciones {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-opciones li {
+    display: flex;
+    align-items: center;
+    padding: .8rem;
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.icono { /* Iconos */
+    margin-right: .7rem;
+    height: 1rem;
+    width: 1rem;
+}
+
+.icono-logout {
+    fill: #C02B26;
+}
+
+.cerrar-sesion {
+    position: fixed;
+    bottom: 2rem;
+    left: 1rem;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}

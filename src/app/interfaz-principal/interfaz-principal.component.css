@@ -1,0 +1,64 @@
+.interfaz-principal {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(to top, #eaeaea, #368984);
+  }
+
+  /* Estilo del icono de menú */
+  .icono-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .boton-hamburguesa {
+    width: 100%;
+    height: 100%;
+    fill: white;
+  }
+
+  /* Estilo del título */
+  .titulo-principal {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  /* Estilo del botón circular */
+  .boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .circulo {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .circulo-rojo {
+    background-color: #CB2E2E;
+    /* background-color: #10936B; */
+  }
+
+  .leyenda {
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }

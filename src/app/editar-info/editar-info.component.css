@@ -1,0 +1,101 @@
+:host {
+    display: block;
+  }
+    
+  
+    h1 {
+      font-family: "Inter";
+      font-weight: bold;
+      font-style: normal;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #FFF;
+      padding-top: 1rem;
+    }
+  
+    label {
+      font-family: "Inter";
+      font-size: 1rem;
+      color: #FFF;
+    }
+  
+    input[type="submit"],
+    .btn-login {
+        width: 70%;
+        background-color: #3664BC;
+        color: #FFF;
+        text-transform: uppercase;
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.35);
+        font-weight: bold;
+
+        border-style: none;
+        font-family: "Inter";
+        font-size: .9rem;
+        border-radius: .8rem;
+        height: 2.8rem;
+        width: 70vw;
+    }
+    
+    a{
+        text-align: center;
+        margin: 0 auto;
+        text-decoration: none;
+        color: #FFF;
+        margin-top: 1rem;
+    }
+
+    .links {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+  
+    a:hover,
+    input[type="submit"]:hover {
+      cursor: pointer;
+    }
+
+    .credentials {
+        /* width: 100%; */
+        align-content: center;
+    }
+  
+    .login {
+      display: grid;
+      justify-content: center;
+      gap: .7rem;
+      width: 75vw;
+      padding-top: 1rem;
+      margin: 0 auto;
+    }
+
+    select,
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="password"],
+    a {
+      border-style: none;
+      font-family: "Inter";
+      font-size: .9rem;
+      border-radius: .8rem;
+      height: 2.8rem;
+      width: 70vw;
+      background-color: #fff;
+    }
+  
+    .main {
+      /* width: 60%; */
+      /* display: flex; */
+      /* justify-content: center; */
+      margin: 0 auto;
+    }
+
+    .btn-cancelar {
+        padding: 10px;
+        background-color: #C02B26;
+        font-weight: bold;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+  }
