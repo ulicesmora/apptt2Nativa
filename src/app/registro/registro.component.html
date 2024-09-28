@@ -1,45 +1,72 @@
 <h1>Registro</h1>
 <section class="credentials">
     <form action="" class="login">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre usuario">
+        <label for="nombre">Nombre(s)</label>
+        <input type="text" [(ngModel)]="nombre" name="nombre" id="nombre" placeholder="Ingrese su nombre" required>
+
+        <label for="apellido-paterno">Apellido Paterno</label>
+        <input type="text" [(ngModel)]="apellidoPaterno" name="apellidoPaterno" id="apellido-paterno" placeholder="Ingrese su apellido Paterno">
+
+        <label for="apellido-materno">Apellido Materno</label>
+        <input type="text" [(ngModel)]="apellidoMaterno" name="apellidoMaterno" id="apellido-materno" placeholder="Ingrese su apellido Materno">
 
         <label for="correo">Correo</label>
-        <input type="email" name="correo" id="correo" placeholder="Ingresa tu correo">
+        <input type="email" [(ngModel)]="correo" name="correo" id="correo" placeholder="Ingrese su correo" (change)="validarCorreo()">
 
         <label for="telefono">Teléfono</label>
-        <input type="tel" name="telefono" id="telefono" placeholder="Ingresa tu teléfono">
+        <input type="tel" [(ngModel)]="telefono" name="telefono" id="telefono" placeholder="Ingrese su teléfono" (change)="validarTel()">
 
-        <label for="telefono-auxiliar">Teléfono familiar</label>
-        <input type="tel" name="telefono" id="telefono-auxiliar" placeholder="Ingresa un teléfono de contacto">
+        <label for="telefonoAuxiliar">Teléfono familiar</label>
+        <input type="tel" [(ngModel)]="telefonoAuxiliar" name="telefonoAuxiliar" id="telefonoAuxiliar" placeholder="Ingrese un teléfono de contacto" (change)="validarTel()">
 
-        <label for="sexo">Sexo </label>
-        <select name="sexo" id="sexo">
+        <label for="genero">Género </label>
+        <!-- <select name="sexo" id="sexo">
             <option value="">Selecciona una opción</option>
             <option value="Masculino">Masculino</option>
             <option value="Femenino">Femenino</option>
-        </select>
+        </select> -->
+        <div class="genero">
+            <label><input type="radio" [(ngModel)]="genero" name="genero" value="Masculino">Masc.</label>
+            <label><input type="radio" [(ngModel)]="genero" name="genero" value="Femenino">Fem.</label>
+            <label><input type="radio" [(ngModel)]="genero" name="genero" value="No especificar">No especificar</label>
+        </div>
 
         <label for="alergia">Alergias </label>
-        <select name="alergia" id="alergia">
-            <option value="">Selecciona una opción</option>
-            <option value="Alergia1">Alergia1</option>
-            <option value="Alergia2">Alergia2</option>
+        <select *ngIf="elementAlergia == false"  [(ngModel)]="alergia" name="alergia" id="alergia">
+            <option (click)="hideData()" value="">Selecciona una opción</option>
+            <option (click)="hideData()" value="Alergia1">Alergia1</option>
+            <option (click)="hideData()" value="Alergia2">Alergia2</option>
+            <option (click)="showData()" value="">Otra</option>
         </select>
+
+        <input *ngIf="elementAlergia == true" type="text" name="otraAlergia" [(ngModel)]="alergia" id="otra-alergia" placeholder="Ingrese su alergia" (ngModelChange)="evaluarDato()">
 
         <label for="enfermedad">Enfermedades crónicas </label>
-        <select name="enfermedad" id="enfermedad">
-            <option value="">Selecciona una opción</option>
-            <option value="Enfermedad1">Enfermedad1</option>
-            <option value="Enfermedad2">Enfermedad2</option>
+        <select *ngIf="elementEnfermedad == false" [(ngModel)]="enfermedad" name="enfermedad" id="enfermedad" >
+            <option (click)="hideEnfermedad()" value="">Selecciona una opción</option>
+            <option (click)="hideEnfermedad()" value="Enfermedad1">Enfermedad1</option>
+            <option (click)="hideEnfermedad()" value="Enfermedad2">Enfermedad2</option>
+            <option (click)="showEnfermedad()" value="">Otra</option>
         </select>
 
+        <input *ngIf="elementEnfermedad == true" type="text" [(ngModel)]="enfermedad" name="otraEnfermedad" id="otra-enfermedad" name="otraEnfermedad" placeholder="Ingrese su enfermedad" (ngModelChange)="evaluarDato()">
+
         <label for="password">Contraseña</label>
-        <input type="password" name="password" id="password" placeholder="********">
+        <input type="password" [(ngModel)]="password" name="password" id="password" placeholder="********" (change)="validarPass()">
+
+        <label for="rpassword">Repita su Contraseña</label>
+        <input type="password"  id="rpassword" [(ngModel)]="rpassword" name="rpassword" placeholder="********">
+
+        <p class="campos-vacios" *ngIf="!(password==rpassword)">Las Contraseñas no coinciden</p>
+        <p class="campos-vacios" *ngIf="mensajeDatos == true">Faltan Campos por rellenar</p>
+        <p class="campos-vacios" *ngIf="mensajeCorreo == true">Formato de correo no válido</p>
+        <p class="campos-vacios" *ngIf="mensajeTel == true">Teléfono no válido</p>
+        <p class="campos-vacios" *ngIf="mensajePass == true">La contraseña debe tener ente 8 y 16 caracteres</p>
         
-        <a class="btn-login" routerLink="/login">
+        <!-- <a class="btn-login" routerLink="/confirmacion"> -->
+        <a class="btn-login" (click)="confirmarDatos(); agregar(nombre, apellidoPaterno, apellidoMaterno, correo, telefono, telefonoAuxiliar, genero, alergia, enfermedad, password);camposRequeridos();">
             <!-- <input type="submit" value="Continuar" routerLink="/login"> -->
-            <p>Registrarse</p>
+            <p>Confirmar Datos</p>
         </a>
     </form>
     <section class="inferior">

@@ -31,6 +31,12 @@
     font-weight: normal;
     text-transform: uppercase;
     margin-bottom: 1rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .titulo {
+    color: #fff;
   }
 
   /* Estilo del botón circular */
@@ -38,10 +44,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
   }
-
+  
   .circulo {
+    cursor: pointer;
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
@@ -53,6 +59,11 @@
 
   .circulo-rojo {
     background-color: #CB2E2E;
+    /* background-color: #10936B; */
+  }
+
+  .circulo-verde {
+    background-color: #10936B;
     /* background-color: #10936B; */
   }
 

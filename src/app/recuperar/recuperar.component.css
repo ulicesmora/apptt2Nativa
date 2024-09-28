@@ -82,7 +82,7 @@ input[type="submit"],
         font-weight: bold;
         cursor: pointer;
     }
-    p {
+    .btn {
         box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.35);
         background-color: #3664BC;
         width: 10rem;
@@ -91,3 +91,10 @@ input[type="submit"],
         padding-top: 1rem;
         padding-bottom: 1rem;
     }
+
+    .campos-vacios {
+        background-color: #ce0000;
+        color: #fff;
+        text-align: center;
+        padding: .35rem;
+      }

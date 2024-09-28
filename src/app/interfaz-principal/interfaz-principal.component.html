@@ -3,12 +3,22 @@
         <svg class="boton-hamburguesa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
     </div>
 
-    <div class="titulo">
+    <div class="titulo" *ngIf="respuesta == false">
         <h2 class="titulo-principal">Emergencia</h2>
     </div>
+    <div class="titulo" *ngIf="respuesta == true">
+        <h2 class="titulo-principal">Solicitud enviada</h2>
+        <h3>Pronto un equipo de rescate te auxiliará</h3>
+    </div>
 
-    <div class="boton">
-        <div class="circulo circulo-rojo">
+    <div class="boton" *ngIf="respuesta == false">
+        <div class="circulo circulo-rojo" (click)="solicitud()">
+            <p class="leyenda">sos</p>
+        </div>
+    </div>
+
+    <div class="boton" *ngIf="respuesta == true">
+        <div class="circulo circulo-verde">
             <p class="leyenda">sos</p>
         </div>
     </div>

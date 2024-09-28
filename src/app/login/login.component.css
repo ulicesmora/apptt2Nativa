@@ -11,7 +11,8 @@
       font-size: 1.2rem;
       text-align: center;
       color: #FFF;
-      padding-top: 10rem;
+      padding-top: 5rem;
+      padding-bottom: 1rem;
     }
   
     label {
@@ -55,10 +56,15 @@
     .login {
       display: grid;
       justify-content: center;
-      gap: 2rem;
+      gap: 1rem;
       width: 75vw;
-      padding-top: 5.35rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
       margin: 0 auto;
+      border: .25rem solid #AFD0CE;
+      /* background-color: #14a0b9; */
+      border-radius: .25rem;
+      box-shadow: 0 12px 60px rgba(0, 0, 0, 0.55);
     }
 
     input[type="email"],
@@ -72,6 +78,11 @@
       height: 2.8rem;
       width: 70vw;
     }
+
+    input[type="email"],
+    input[type="password"] {
+      background-color: #FFF;
+    }
   
     .main {
       /* width: 60%; */
@@ -81,4 +92,42 @@
     }
     
   
-    
+    .logo {
+      padding-top: 4rem;
+      width: 100vw;
+      height: 10rem;
+      display: flex;
+      justify-content: center;
+      /* background-image: url('./assets/logo.png') no-repeat center top; */
+    }
+
+    .img-logo {
+      width: 10rem;
+      height: 10rem;
+    }
+
+    .mensaje-exito {
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      margin: 0 auto;
+      margin-bottom: 1.5rem;
+      width: 75vw;
+      text-align: center;
+      background-color: #0eaa06;
+      color: #FFF;
+      height: 3.5rem;
+      font-weight: bold;
+    }
+
+    .campos-vacios {
+      padding-top: .5rem;
+      padding-bottom: .5rem;
+      margin: 0 auto;
+      margin-bottom: 1.5rem;
+      width: 75vw;
+      text-align: center;
+      background-color: #ce0000;
+      color: #fff;
+      height: 2.5rem;
+      font-weight: bold;
+    }
