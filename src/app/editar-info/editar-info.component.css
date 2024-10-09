@@ -35,6 +35,7 @@
         border-radius: .8rem;
         height: 2.8rem;
         width: 70vw;
+        cursor: pointer;
     }
     
     a{
@@ -98,4 +99,17 @@
         color: white;
         font-size: 1rem;
         cursor: pointer;
+  }
+
+  .campos-vacios {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    margin: 0 auto;
+    margin-bottom: .5rem;
+    width: 75vw;
+    text-align: center;
+    background-color: #ce0000;
+    color: #fff;
+    height: auto;
+    font-weight: bold;
   }

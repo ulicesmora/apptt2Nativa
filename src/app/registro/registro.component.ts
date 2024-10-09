@@ -105,7 +105,7 @@ export class RegistroComponent {
       this.showMensaje();
       setTimeout(() => {
         this.hideMensaje();
-      }, 2000);
+      }, 3000);
     }
   }
 
