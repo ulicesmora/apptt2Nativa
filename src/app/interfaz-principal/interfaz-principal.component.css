@@ -85,3 +85,10 @@
     color: #FFF;
     height: auto;
   }
+
+  h3 {
+    font-weight: normal;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+  }
