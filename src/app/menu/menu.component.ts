@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CambiarPasswordComponent } from '../cambiar-password/cambiar-password.component';
+// import { AuthServiceService } from '../login/auth-service.service';
 
 @Component({
   selector: 'app-menu',
@@ -23,4 +24,11 @@ export class MenuComponent {
       width:'400px'
     })
   }
+
+  // logout() {
+  //   this.authService.logout().then(() => {
+  //     this.router.navigate(['/login']); // Redirige al login tras cerrar sesión
+  //   });
+  // }
+  
 }
