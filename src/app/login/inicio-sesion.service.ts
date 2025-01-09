@@ -81,11 +81,15 @@ async saveID(id: string): Promise<void> {
 }
 
 async savePassword(password: string): Promise<void> {
-  await Preferences.set({
-    key: 'password',
-      value: password,
-  });
+  localStorage.setItem('password', password);
 }
+
+// async savePassword(password: string): Promise<void> {
+//   await Preferences.set({
+//     key: 'password',
+//       value: password,
+//   });
+// }
 
 // JSON "get" example
 async getToken(): Promise<string | null> {
