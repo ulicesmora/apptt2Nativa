@@ -63,7 +63,8 @@
         <input type="hidden" name="password" id="password" disabled [value]="this.datos[9]">
         
         <p>¿Resistrar estos datos?</p>
-        <a class="btn-login" routerLink="/login" (click)="onNoClick(); agregarMsj();">
+        <a class="btn-login" routerLink="/login" (click)="onNoClick(); agregarMsj(this.datos[0],this.datos[1],this.datos[2],this.datos[3],this.datos[4],this.datos[5],this.datos[6],this.datos[7],this.datos[8],this.datos[9]);">
+        <!-- <a class="btn-login" routerLink="/login" (click)="onNoClick();"> -->
             <!-- <input type="submit" value="Continuar" routerLink="/login"> -->
             <p>Continuar</p>
         </a>

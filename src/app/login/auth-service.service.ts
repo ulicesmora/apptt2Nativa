@@ -20,8 +20,9 @@ export class AuthServiceService {
   }
 
   // Cerrar sesión
-  async logout(): Promise<void> {
-    await Preferences.remove({ key: 'id' });
+  logout(): void {
+    localStorage.removeItem('id');
     console.log('Sesión cerrada.');
   }
+
 }

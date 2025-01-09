@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CambiarPasswordComponent } from '../cambiar-password/cambiar-password.component';
-// import { AuthServiceService } from '../login/auth-service.service';
+import { AuthServiceService } from '../login/auth-service.service';
 
 @Component({
   selector: 'app-menu',
@@ -30,5 +30,9 @@ export class MenuComponent {
   //     this.router.navigate(['/login']); // Redirige al login tras cerrar sesión
   //   });
   // }
-  
+  // Cerrar sesión
+  logout(): void {
+    localStorage.removeItem('id');
+    console.log('Sesión cerrada.');
+  }
 }
