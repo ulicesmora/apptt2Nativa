@@ -14,7 +14,9 @@ export class InterfazPrincipalService {
 
   async getCurrentLocation() {
     try {
-      const position = await Geolocation.getCurrentPosition();
+      const position = await Geolocation.getCurrentPosition({
+        enableHighAccuracy: true,
+      });
       console.log('Current position:', position);
       return position;
     } catch (error) {
