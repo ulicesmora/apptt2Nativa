@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Geolocation } from '@capacitor/geolocation';
 import { API_URL } from '../app.config';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -24,10 +23,7 @@ export class InterfazPrincipalService {
       throw error;
     }
   }
-
-
   actualizarStatus(id: string | null, status: string, latitud: number, longitud: number ): Observable<any> {
-
     const url = `${API_URL}/api/users/update/`; // URL base
     const body = {
       status,

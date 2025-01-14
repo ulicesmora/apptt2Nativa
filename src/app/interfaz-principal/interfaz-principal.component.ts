@@ -36,7 +36,7 @@ export class InterfazPrincipalComponent {
   }
 
   async solicitud() {
-    this.respuesta=true;
+    
     try {
       const position = await this.interfazPrincipalService.getCurrentLocation();
       this.latitude = position.coords.latitude;
@@ -46,6 +46,7 @@ export class InterfazPrincipalComponent {
       this.interfazPrincipalService.actualizarStatus(this.userId ,'true',this.latitude, this.longitude).subscribe(
         (response) => {
           console.log('Location sent successfully:', response);
+          this.respuesta=true;
         },
         (error) => {
           console.error('Error sending location:', error);

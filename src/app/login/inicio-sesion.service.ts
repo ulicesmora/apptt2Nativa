@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { API_URL } from '../app.config';
 import { Preferences } from '@capacitor/preferences';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -12,12 +11,9 @@ export class InicioSesionService {
 
   private userId: string | null = null; // Variable para almacenar el ID
   private userPassword: string | null = null; // Variable para almacenar la contraseña
-
+  private userEmail: string | null = null; // Variable para almacenar el correo electrónico  
 
   constructor(private http: HttpClient) { }
-
-
-
 
   login(emailAddress: string, password: string): Observable<LoginResponse> {
     const url = `${API_URL}/api/users/login`;
@@ -46,6 +42,16 @@ export class InicioSesionService {
   // Método para obtener la contraseña
   getPassword() {
     return this.userPassword;
+  }
+
+  // Método para guardar el correo electrónico
+  setUserEmail(email: string) {
+    this.userEmail = email;
+  }
+
+  // Método para obtener el correo electrónico
+  getUserEmail(): string | null {
+    return this.userEmail;
   }
 
   // login(emailAddress: string, password: string): Promise<number> {
@@ -84,6 +90,10 @@ async savePassword(password: string): Promise<void> {
   localStorage.setItem('password', password);
 }
 
+async saveUserEmail(email: string): Promise<void> {
+  localStorage.setItem('email', email);
+}
+
 // async savePassword(password: string): Promise<void> {
 //   await Preferences.set({
 //     key: 'password',
@@ -114,4 +124,5 @@ async getPass(): Promise<string | null> {
 export interface LoginResponse {
   id: string; // o string, dependiendo de cómo manejes los IDs
   password: string;
+  emailAddress: string; // Agregar el correo electrónico en la respuesta
 }

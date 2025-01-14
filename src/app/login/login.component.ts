@@ -129,6 +129,7 @@ export class LoginComponent {
 
   loguear() {
     this.valido = false;
+    this.inicioSesionService.setUserEmail(this.correo)
     console.log(this.correo, this.password);
   
     // Validación previa al envío
@@ -164,8 +165,12 @@ export class LoginComponent {
           this.inicioSesionService.saveID(response.id).then(() => {
             console.log('ID guardado correctamente.');
           });
-          this.inicioSesionService.savePassword(response.password).then(() => {
+          this.inicioSesionService.savePassword(this.password).then(() => {
             console.log('Password guardado correctamente.');
+          });
+
+          this.inicioSesionService.saveUserEmail(this.correo).then(() => {
+            console.log('Correo guardado correctamente.', this.correo);
           });
 
           // Redirigir a la interfaz principal

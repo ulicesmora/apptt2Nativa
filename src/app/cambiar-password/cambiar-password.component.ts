@@ -20,9 +20,9 @@ export class CambiarPasswordComponent {
   passActual='';
   passNueva='';
   passNuevar='';
-
   userId = localStorage.getItem('id');
   userPassword = localStorage.getItem('password');
+  email = localStorage.getItem('email');
 
   get mensajes() {
     // this.mensajesService.agregarMensaje('Cuenta creada. Revise su correo electrónico');
@@ -51,6 +51,15 @@ export class CambiarPasswordComponent {
       return false;
     }
   }
+
+  validarPassActual(contrasena:string){
+    if (contrasena==this.userPassword){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 
   // agregarMsj() {
   //   this.mensajesService.agregarMensaje("Contraseña cambiada");

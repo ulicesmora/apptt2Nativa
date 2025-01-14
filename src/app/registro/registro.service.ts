@@ -38,3 +38,25 @@ export interface Usuario {
   longitud: string;
   date: Date; // Asegúrate de que el formato sea compatible con el backend
 }
+
+// Inicializar un objeto con la estructura de Usuario
+export const initialUsuario: Usuario = {
+  roleId: 2,
+  emailAddress: '',
+  password: '',
+  name: '',
+  secondName: '',
+  lastName: '',
+  motherLastName: '',
+  bloodType: '',
+  birthDate: '',
+  sex: '',
+  allergies: '',
+  criticalIllnes: '',
+  status: 'false',
+  cellPhone: '',
+  auxiliaryCellPhone: '',
+  latitud: '',
+  longitud: '',
+  date: new Date() // Inicializa con la fecha actual
+};
