@@ -6,6 +6,8 @@ import { MensajesService } from '../services/mensajes.service';
 import { InicioSesionService } from '../login/inicio-sesion.service';
 import { EditarInfoService, UserUpdateDTO } from './editar-info.service';
 import { Usuario } from '../registro/registro.service';
+import { AllergiesService } from '../services/allergies.service';
+import { IllnesService } from '../services/illnes.service';
 
 @Component({
   selector: 'app-editar-info',
@@ -15,6 +17,9 @@ import { Usuario } from '../registro/registro.service';
   styleUrl: './editar-info.component.css'
 })
 export class EditarInfoComponent implements OnInit{
+
+  allergies: any[] = [];
+  illnes: any[] = [];
 
   usuario: Usuario = {
     roleId: 2,
@@ -67,12 +72,37 @@ export class EditarInfoComponent implements OnInit{
     private mensajesService: MensajesService,
     private inicioSesionService: InicioSesionService,
     private editarInfoService: EditarInfoService,
+    private allergiesService: AllergiesService,
+    private illnesService: IllnesService,
     private router: Router
   ) {}
   ngOnInit(): void {
     console.log('ID de usuario:', this.userId);
     this.obtenerUsuario(this.userId);
-    
+    this.loadAllergies();
+    this.loadIllnes();
+  }
+
+  loadAllergies(): void {
+    this.allergiesService.getAllergies().subscribe({
+      next: (data) => {
+        this.allergies = data; // Asume que el endpoint devuelve un arreglo
+      },
+      error: (error) => {
+        console.error('Error al cargar las alergias:', error);
+      }
+    });
+  }
+
+  loadIllnes(): void {
+    this.illnesService.getIllnes().subscribe({
+      next: (data) => {
+        this.illnes = data; // Asume que el endpoint devuelve un arreglo
+      },
+      error: (error) => {
+        console.error('Error al cargar las enfermedades:', error);
+      }
+    });
   }
 
   showData() {

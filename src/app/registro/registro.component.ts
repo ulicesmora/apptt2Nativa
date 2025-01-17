@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { DatosService } from '../services/datos.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmacionComponent } from '../confirmacion/confirmacion.component';
+import { AllergiesService } from '../services/allergies.service';
+import { IllnesService } from '../services/illnes.service';
 // import { RegistroService, Usuario } from './registro.service';
 
 @Component({
@@ -14,7 +16,7 @@ import { ConfirmacionComponent } from '../confirmacion/confirmacion.component';
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
-export class RegistroComponent {
+export class RegistroComponent implements OnInit {
   // usuario: Usuario = {
   //   roleId: 2,
   //   emailAddress: '',
@@ -35,6 +37,9 @@ export class RegistroComponent {
   //   longitud: '',
   //   date: new Date() // Inicializa con la fecha actual
   // };
+
+  allergies: any[] = [];
+  illnes: any[] = [];
   
   emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   telRegex = /^\d{10}$/;
@@ -91,8 +96,37 @@ export class RegistroComponent {
   constructor(
     private datosService: DatosService,
     private _matDialog: MatDialog,
+    private allergiesService: AllergiesService,
+    private illnesService: IllnesService,
     // private registroService: RegistroService,
   ) {}
+
+  ngOnInit(): void {
+    this.loadAllergies();
+    this.loadIllnes();
+  }
+
+  loadAllergies(): void {
+    this.allergiesService.getAllergies().subscribe({
+      next: (data) => {
+        this.allergies = data; // Asume que el endpoint devuelve un arreglo
+      },
+      error: (error) => {
+        console.error('Error al cargar las alergias:', error);
+      }
+    });
+  }
+
+  loadIllnes(): void {
+    this.illnesService.getIllnes().subscribe({
+      next: (data) => {
+        this.illnes = data; // Asume que el endpoint devuelve un arreglo
+      },
+      error: (error) => {
+        console.error('Error al cargar las enfermedades:', error);
+      }
+    });
+  }
 
   confirmarDatos():void {
     this._matDialog.open(ConfirmacionComponent, {
