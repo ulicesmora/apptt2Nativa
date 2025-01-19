@@ -32,10 +32,12 @@
         </div>
 
         <label for="alergia">Alergias </label>
-        <select *ngIf="elementAlergia == false"  [(ngModel)]="alergia" name="alergia" id="alergia">
+        <!-- <select *ngIf="elementAlergia == false"  [(ngModel)]="alergia" name="alergia" id="alergia"> -->
+        <!-- <select [(ngModel)]="alergia" [disabled]="elementAlergia" name="alergia" id="alergia"> -->
+        <!-- <select [ngModel]="elementAlergia ? null : alergia" (ngModelChange)="elementAlergia ? null : alergia = $event" name="alergia" id="alergia"> -->
+        
+        <select  [(ngModel)]="alergia" name="alergia" id="alergia">
             <option (click)="hideData()" value="">Selecciona una opción</option>
-            <option (click)="hideData()" value="Alergia1" [selected]="this.usuario.allergies == 'Alergia1'">Alergia1</option>
-            <option (click)="hideData()" value="Alergia2" [selected]="this.usuario.allergies == 'Alergia2'">Alergia2</option>
             <option (click)="hideData()" *ngFor="let allergy of allergies" [value]="allergy.allergie" [selected]="this.usuario.allergies == allergy.allergie">
                 {{ allergy.allergie }}
             </option>
@@ -47,8 +49,6 @@
         <label for="enfermedad">Enfermedades crónicas </label>
         <select *ngIf="elementEnfermedad == false" [(ngModel)]="enfermedad" name="enfermedad" id="enfermedad" >
             <option (click)="hideEnfermedad()" value="">Selecciona una opción</option>
-            <option (click)="hideEnfermedad()" value="Enfermedad1" [selected]="this.usuario.criticalIllnes === 'Enfermedad1'">Enfermedad1</option>
-            <option (click)="hideEnfermedad()" value="Enfermedad2" [selected]="this.usuario.criticalIllnes === 'Enfermedad2'">Enfermedad2</option>
             <option (click)="hideEnfermedad()"  *ngFor="let ill of illnes" [value]="ill.criticalIllnes" [selected]="this.usuario.criticalIllnes === ill.criticalIllnes">
                 {{ ill.criticalIllnes }}
             </option>
@@ -56,6 +56,22 @@
         </select>
 
         <input *ngIf="elementEnfermedad == true" type="text" [(ngModel)]="enfermedad" name="otraEnfermedad" id="otra-enfermedad" name="otraEnfermedad" placeholder="Ingrese su enfermedad" (ngModelChange)="evaluarDato()">
+
+        <label for="grupoSanguineo">Grupo Sanguíneo </label>
+        <select [(ngModel)]="grupoSanguineo" name="grupoSanguineo" id="grupSamguineo" >
+            <option value="">Selecciona una opción</option>
+            <option value="A+" [selected]="this.usuario.bloodType == 'A+'">A+</option>
+            <option value="A-" [selected]="this.usuario.bloodType == 'A-'">A-</option>
+            <option value="B+" [selected]="this.usuario.bloodType == 'B+'">B+</option>
+            <option value="B-" [selected]="this.usuario.bloodType == 'B-'">B-</option>
+            <option value="AB+" [selected]="this.usuario.bloodType == 'AB+'">AB+</option>
+            <option value="AB-" [selected]="this.usuario.bloodType == 'AB-'">AB-</option>
+            <option value="O+" [selected]="this.usuario.bloodType == 'O+'">O+</option>
+            <option value="O-" [selected]="this.usuario.bloodType == 'O-'">O-</option>
+        </select>
+
+        <label for="fechaNacimiento">Fecha de Nacimiento </label>
+        <input type="date" [(ngModel)]="fechaNacimiento" name="fechaNacimiento" id="fechaNacimiento" [min]="minDate" [max]="maxDate" [value]="this.usuario.birthDate">
 
         <p class="campos-vacios" *ngIf="mensajeDatos == true">Faltan Campos por rellenar</p>
         <p class="campos-vacios" *ngIf="mensajeCorreo == true">Formato de correo no válido</p>

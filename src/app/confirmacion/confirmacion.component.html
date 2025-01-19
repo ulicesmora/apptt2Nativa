@@ -60,10 +60,18 @@
 
         <!-- <input *ngIf="elementEnfermedad == true" type="text" name="otra-enfermedad" id="otra-enfermedad" disabled> -->
 
+        <label for="grupoSanguineo">Grupo Sanguíneo </label>
+        <select name="grupoSanguineo" id="grupSamguineo" disabled>
+            <option [value]="this.datos[10]">{{this.datos[10]}}</option>
+        </select>
+        
+        <label for="fechaNacimiento">Fecha de Nacimiento </label>
+        <input type="date" name="fechaNacimiento" id="fechaNacimiento" [value]="this.datos[11]" disabled>
+
         <input type="hidden" name="password" id="password" disabled [value]="this.datos[9]">
         
         <p>¿Resistrar estos datos?</p>
-        <a class="btn-login" routerLink="/login" (click)="onNoClick(); agregarMsj(this.datos[0],this.datos[1],this.datos[2],this.datos[3],this.datos[4],this.datos[5],this.datos[6],this.datos[7],this.datos[8],this.datos[9]);">
+        <a class="btn-login" routerLink="/login" (click)="onNoClick(); agregarMsj(this.datos[0],this.datos[1],this.datos[2],this.datos[3],this.datos[4],this.datos[5],this.datos[6],this.datos[7],this.datos[8],this.datos[9],this.datos[10], this.datos[11]);">
         <!-- <a class="btn-login" routerLink="/login" (click)="onNoClick();"> -->
             <!-- <input type="submit" value="Continuar" routerLink="/login"> -->
             <p>Continuar</p>

@@ -75,6 +75,7 @@
     input[type="tel"],
     input[type="email"],
     input[type="password"],
+    input[type="date"],
     a {
       border-style: none;
       font-family: "Inter";

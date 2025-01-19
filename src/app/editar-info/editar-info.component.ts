@@ -20,6 +20,7 @@ export class EditarInfoComponent implements OnInit{
 
   allergies: any[] = [];
   illnes: any[] = [];
+  nombres: string[] = [];
 
   usuario: Usuario = {
     roleId: 2,
@@ -42,6 +43,9 @@ export class EditarInfoComponent implements OnInit{
     date: new Date() // Inicializa con la fecha actual
   };
 
+  minDate: string;
+  maxDate: string;
+
   userId = Number(localStorage.getItem('id'));
 
   emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -52,7 +56,7 @@ export class EditarInfoComponent implements OnInit{
   mensajeCorreo = false;
   mensajeTel = false;
   mensajePass = false;
-  nombre = this.usuario.name;
+  nombre = `${this.usuario.name} ${this.usuario.secondName}`;
   apellidoPaterno=this.usuario.lastName;
   apellidoMaterno=this.usuario.motherLastName;
   correo=this.usuario.emailAddress;
@@ -63,6 +67,8 @@ export class EditarInfoComponent implements OnInit{
   otraAlergia='';
   enfermedad=this.usuario.criticalIllnes;
   otraEnfermedad='';
+  grupoSanguineo=this.usuario.bloodType;
+  fechaNacimiento=this.usuario.birthDate;
 
   userUpdateDTO: UserUpdateDTO = {};
 
@@ -75,7 +81,11 @@ export class EditarInfoComponent implements OnInit{
     private allergiesService: AllergiesService,
     private illnesService: IllnesService,
     private router: Router
-  ) {}
+  ) {
+    const currentDate = new Date();
+    this.minDate = '1913-01-01';
+    this.maxDate = currentDate.toISOString().split('T')[0]; // Fecha actual en formato 'YYYY-MM-DD'
+  }
   ngOnInit(): void {
     console.log('ID de usuario:', this.userId);
     this.obtenerUsuario(this.userId);
@@ -156,14 +166,20 @@ export class EditarInfoComponent implements OnInit{
       // } else {
       //   this.router.navigate(['/interfaz-principal']);
       // }
-    if ( !this.nombre || !this.apellidoPaterno|| !this.apellidoMaterno|| !this.correo || !this.telefono|| !this.telefonoAuxiliar|| !this.genero || !this.alergia || !this.enfermedad ) {
+    if ( !this.nombre || !this.apellidoPaterno|| !this.apellidoMaterno|| !this.correo || !this.telefono|| !this.telefonoAuxiliar|| !this.genero || !this.alergia || !this.enfermedad || !this.grupoSanguineo || !this.fechaNacimiento) {
        this.mensajeDatos = true;
        
       setTimeout(() => {
         this.mensajeDatos = false;
       }, 3000);
     } else {
-      this.userUpdateDTO.name=this.nombre;
+      if (this.nombre.trim().includes(' ')) {
+        this.nombres = this.nombre.trim().split(/\s+/); // Divide por cualquier cantidad de espacios
+        this.userUpdateDTO.name=this.nombres[0];
+        this.userUpdateDTO.secondName=this.nombres[1];
+      } else {
+        this.userUpdateDTO.name=this.nombre;
+      }
       this.userUpdateDTO.lastName=this.apellidoPaterno;
       this.userUpdateDTO.motherLastName=this.apellidoMaterno;
       this.userUpdateDTO.emailAddress=this.correo;
@@ -172,6 +188,8 @@ export class EditarInfoComponent implements OnInit{
       this.userUpdateDTO.sex=this.genero;
       this.userUpdateDTO.allergies=this.alergia;
       this.userUpdateDTO.criticalIllnes=this.enfermedad;
+      this.userUpdateDTO.bloodType=this.grupoSanguineo;
+      this.userUpdateDTO.birthDate=this.fechaNacimiento;
       // this.userUpdateDTO.password=dato9;
       this.updateUser();
     }
@@ -182,7 +200,7 @@ export class EditarInfoComponent implements OnInit{
       next: (response) => {
         console.log(response)
         this.usuario = response; // Guarda la respuesta en la variable usuario
-        this.nombre = this.usuario.name;
+        this.nombre = `${this.usuario.name} ${this.usuario.secondName}`;
         this.apellidoPaterno=this.usuario.lastName;
         this.apellidoMaterno=this.usuario.motherLastName;
         this.correo=this.usuario.emailAddress;
@@ -193,6 +211,8 @@ export class EditarInfoComponent implements OnInit{
         this.otraAlergia='';
         this.enfermedad=this.usuario.criticalIllnes;
         this.otraEnfermedad='';
+        this.grupoSanguineo=this.usuario.bloodType;
+        this.fechaNacimiento=this.usuario.birthDate;
       },
       error: (error) => {
         console.error('Error al obtener la información del usuario:', error);

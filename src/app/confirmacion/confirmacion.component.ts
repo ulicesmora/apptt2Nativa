@@ -20,6 +20,8 @@ export class ConfirmacionComponent implements OnInit{
 
   datos: any[] = [];
 
+  nombres: string[] = [];
+
   usuario: Usuario = {
     roleId: 2,
     emailAddress: '',
@@ -52,6 +54,7 @@ export class ConfirmacionComponent implements OnInit{
   otraAlergia='';
   enfermedad='';
   otraEnfermedad='';
+  grupoSanguineo='';
   password='';
   rpassword='';
 
@@ -116,8 +119,14 @@ export class ConfirmacionComponent implements OnInit{
   });
   }
 
-  agregarMsj(dato0:any,dato1:any,dato2:any,dato3:any,dato4:any,dato5:any,dato6:any,dato7:any,dato8:any,dato9:any) {
-    this.usuario.name=dato0;
+  agregarMsj(dato0:any,dato1:any,dato2:any,dato3:any,dato4:any,dato5:any,dato6:any,dato7:any,dato8:any,dato9:any, dato10:any, dato11:any) {
+    if (dato0.trim().includes(' ')) {
+      this.nombres = dato0.trim().split(/\s+/); // Divide por cualquier cantidad de espacios
+      this.usuario.name=this.nombres[0];
+      this.usuario.secondName=this.nombres[1];
+    } else {
+      this.usuario.name=dato0;
+    }
     this.usuario.lastName=dato1;
     this.usuario.motherLastName=dato2;
     this.usuario.emailAddress=dato3;
@@ -127,6 +136,8 @@ export class ConfirmacionComponent implements OnInit{
     this.usuario.allergies=dato7;
     this.usuario.criticalIllnes=dato8;
     this.usuario.password=dato9;
+    this.usuario.bloodType=dato10;
+    this.usuario.birthDate=dato11;
 
     this.registrarUsuario();
     // setTimeout(() => {

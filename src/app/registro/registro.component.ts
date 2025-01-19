@@ -60,8 +60,14 @@ export class RegistroComponent implements OnInit {
   otraAlergia='';
   enfermedad='';
   otraEnfermedad='';
+  grupoSanguineo='';
+  fechaNacimiento='';
   password='';
   rpassword='';
+
+  minDate: string;
+  maxDate: string;
+
   showData() {
     return (this.elementAlergia = true);
   }
@@ -99,7 +105,11 @@ export class RegistroComponent implements OnInit {
     private allergiesService: AllergiesService,
     private illnesService: IllnesService,
     // private registroService: RegistroService,
-  ) {}
+  ) {
+    const currentDate = new Date();
+    this.minDate = '1913-01-01';
+    this.maxDate = currentDate.toISOString().split('T')[0]; // Fecha actual en formato 'YYYY-MM-DD'
+  }
 
   ngOnInit(): void {
     this.loadAllergies();
@@ -155,7 +165,7 @@ export class RegistroComponent implements OnInit {
   //   );
   // }
 
-  agregar(dato0:any,dato1:any,dato2:any,dato3:any,dato4:any,dato5:any,dato6:any,dato7:any,dato8:any,dato9:any) {
+  agregar(dato0:any,dato1:any,dato2:any,dato3:any,dato4:any,dato5:any,dato6:any,dato7:any,dato8:any,dato9:any,dato10:any, dato11:any) {
     // nombre, apellidoPaterno, apellidoMaterno, correo, telefono, telefonoAuxiliar, gene
     // this.usuario.name=dato0;
     // this.usuario.lastName=dato1;
@@ -180,6 +190,8 @@ export class RegistroComponent implements OnInit {
     this.datosService.agregarDato(dato7);
     this.datosService.agregarDato(dato8);
     this.datosService.agregarDato(dato9);
+    this.datosService.agregarDato(dato10);
+    this.datosService.agregarDato(dato11);
   }
 
   camposRequeridos() {
