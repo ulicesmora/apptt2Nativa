@@ -8,9 +8,8 @@
                     <input type="email" name="correo" [(ngModel)]="correo" id="correore" placeholder="correo@correo.com"  (keyup)="validarCorreo()">
                     <p class="campos-vacios" *ngIf="mensajeCorreo == true">Formato de correo no válido</p>
                     <a *ngIf="valido == true" class="btn-login" (click)="onNoClick(); agregarMsj();">
-                        <!-- <input type="submit" value="Continuar" routerLink="/login"> -->
                          <p class="btn">Continuar</p>
-                      </a>
+                    </a>
                 </form>
             </article>
         </div>

@@ -1,0 +1,21 @@
+<section class="modal-overlay">
+    <div class="modal-content">
+      <h3>¿Eliminar Cuenta?</h3>
+  
+      <form>
+        <div class="form-group">
+          <label for="current-password">Para Confirmar ingrese su contraseña</label>
+          <input type="password" id="current-password" name="current-password" [(ngModel)]="passActual" placeholder="●●●●●●●●" required (keyup)="mensajePass=validarPass(passActual)">
+        </div>
+
+        <p *ngIf="mensajes.length>1" class="mensaje-exito">{{mensajes}}</p>
+        <p class="campos-vacios" *ngIf="mensajePass == true">La contraseña debe tener entre 8 y 16 caracteres</p>
+        <p class="campos-vacios" *ngIf="mensajePassActual == true">Contraseña no válida</p>
+  
+        
+        <button *ngIf="mensajePass == false  && mensajePassActual == false && passActual.length>7" type="submit" class="btn-continuar" (click)="onNoClick();eliminarCuenta();">Continuar</button>
+        <button (click)="onNoClick()" class="btn-cancelar">Cancelar</button>
+      </form>
+    </div>
+  </section>
+  

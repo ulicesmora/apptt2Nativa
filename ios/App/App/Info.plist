@@ -45,5 +45,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Esta aplicación necesita acceso a tu ubicación para proporcionar funcionalidades basadas en la ubicación.</string>
+
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Esta aplicación necesita acceso constante a tu ubicación para proporcionar funciones precisas incluso en segundo plano.</string>
+
+    <key>NSLocationTemporaryUsageDescriptionDictionary</key>
+    <dict>
+        <key>PreciseLocation</key>
+        <string>Esta aplicación necesita ubicación precisa para mejorar la experiencia del usuario.</string>
+    </dict>
 </dict>
 </plist>

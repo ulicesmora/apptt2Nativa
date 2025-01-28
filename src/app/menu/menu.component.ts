@@ -4,6 +4,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CambiarPasswordComponent } from '../cambiar-password/cambiar-password.component';
 import { AuthServiceService } from '../login/auth-service.service';
+import { EliminarCuentaComponent } from '../eliminar-cuenta/eliminar-cuenta.component';
 
 @Component({
   selector: 'app-menu',
@@ -21,6 +22,12 @@ export class MenuComponent {
 
   cambiarPassword():void {
     this._matDialog.open(CambiarPasswordComponent, {
+      width:'400px'
+    })
+  }
+
+  eliminarCuenta():void {
+    this._matDialog.open(EliminarCuentaComponent, {
       width:'400px'
     })
   }
