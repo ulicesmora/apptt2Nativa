@@ -2,6 +2,7 @@
   <img class="img-logo" src="/assets/logopt.svg" alt="logo">
 </div>
 <h1>Inicio de Sesión</h1>
+<img class="img-loader" src="/assets/tube-spinner2.svg" alt="loader" *ngIf="loader == true">
 <p *ngIf="mensajes.length>1" class="mensaje-exito">{{mensajes}}</p>
 <p class="campos-vacios" *ngIf="mensajeCorreo == true">Debe insertar un correo válido</p>
 <p class="campos-vacios" *ngIf="mensajePass == true">Debe insertar una contraseña</p>

@@ -131,3 +131,10 @@
       height: 2.5rem;
       font-weight: bold;
     }
+
+    .img-loader {
+      width: 15%;
+      margin: 0 auto;
+      display: grid;
+      justify-content: center;
+    }

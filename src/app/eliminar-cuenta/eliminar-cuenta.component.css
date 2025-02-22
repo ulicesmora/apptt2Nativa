@@ -104,3 +104,7 @@
     height: auto;
     font-weight: bold;
   }
+
+  .img-loader {
+    width: 20%;
+  }

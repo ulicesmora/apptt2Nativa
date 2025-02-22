@@ -19,6 +19,7 @@ export class LoginComponent {
   mensajeCorreo=false;
   mensajePass=false;
   mensajeGeneral=false;
+  loader=false;
   emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   correo='';
   password='';
@@ -129,6 +130,7 @@ export class LoginComponent {
 
   loguear() {
     this.valido = false;
+    this.loader = true;
     this.inicioSesionService.setUserEmail(this.correo)
     console.log(this.correo, this.password);
   
@@ -175,9 +177,11 @@ export class LoginComponent {
 
           // Redirigir a la interfaz principal
           this.router.navigate(['/interfaz-principal']);
+          this.loader=false;
         } else {
           console.log('La respuesta no indica un inicio de sesión exitoso.');
           this.router.navigate(['/login']); // Redirigir al login si la respuesta no es exitosa
+          this.loader=false;
         }
       },
       error: (error) => {
@@ -185,6 +189,7 @@ export class LoginComponent {
         console.log('El inicio de sesión falló.');
         this.router.navigate(['/login']); // Redirigir al login en caso de error
         this.mensajeGeneral=true;
+        this.loader=false;
       }
     });
   }
